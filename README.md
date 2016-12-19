@@ -15,6 +15,7 @@ node --version
 npm -v
 
 # 使用npm初始化项目
+```
 npm init
 name:   // 项目名称
 version://项目版本号
@@ -25,7 +26,7 @@ git repository://git 产库路径
 keywords://关键字
 author://作者
 license:.// 项目协议
-
+```
 
 # 使用npm安装包
 npm install jquery --save   // save参数，是将依赖保存到package.json文件的 dependencies 属性
