@@ -55,7 +55,7 @@ cd ..
 ```
 # git 常用命令
 ```
-git add .
+git add . // git add --all
 git commit -m '提交的注释写到这里'
 git push origin master
 ```
