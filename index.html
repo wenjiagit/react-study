@@ -6,6 +6,8 @@
     <script src="./node_modules/react/dist/react.min.js"></script>
     <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
     <script src="./babel-core@5.8.38-browser.min.js"></script>
+    <link href="./node_modules/antd/dist/antd.min.css" rel="stylesheet">
+    <script src="./node_modules/antd/dist/antd.min.js"></script>
 </head>
 <body>
 <div id="example"></div>
@@ -34,12 +36,36 @@
             );
         });
     }
+    function onChange(date, dateString) {
+        console.log(date, dateString);
+    }
+    function onPanelChange(value, mode) {
+        console.log(value, mode);
+    }
     ReactDOM.render(
             <div>
+                <div>
+                    <antd.Breadcrumb>
+                        <antd.Breadcrumb.Item>Home</antd.Breadcrumb.Item>
+                        <antd.Breadcrumb.Item><a href="">Application Center</a></antd.Breadcrumb.Item>
+                        <antd.Breadcrumb.Item><a href="">Application List</a></antd.Breadcrumb.Item>
+                        <antd.Breadcrumb.Item>An Application</antd.Breadcrumb.Item>
+                    </antd.Breadcrumb>
+                </div>
                 <ul className="user-list">
                     {renderUserList()}
                 </ul>
                 <button onClick={handleSubmit}>提交</button>
+                <antd.Button>哈哈哈</antd.Button>
+                <div>
+                    <antd.DatePicker.RangePicker onChange={onChange} />
+                </div>
+
+                <div>
+                    <antd.Calendar onPanelChange={onPanelChange} />
+                </div>
+
+
             </div>,
             document.getElementById('example')
     );
