@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="./node_modules/react/dist/react.min.js"></script>
+    <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="./babel-core@5.8.38-browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+
+    function handleClickLi(name) {
+        alert(name);
+    }
+    function handleSubmit() {
+        alert('handleSubmit');
+    }
+    var arr = [
+        "张三",
+        "李四",
+        "王五",
+        "宋六",
+    ];
+    function renderUserList() {
+        return arr.map(function (item) {
+            return (
+                    <li onClick={function (e) {
+                        handleClickLi(item);
+                    }}>
+                        {item}
+                    </li>
+            );
+        });
+    }
+    ReactDOM.render(
+            <div>
+                <ul className="user-list">
+                    {renderUserList()}
+                </ul>
+                <button onClick={handleSubmit}>提交</button>
+            </div>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

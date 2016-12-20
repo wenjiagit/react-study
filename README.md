@@ -52,9 +52,16 @@ mkdir react-demo
 
 # 返回上层目录
 cd ..
-
-
+```
+# git 常用命令
+```
+git add .
+git commit -m '提交的注释写到这里'
+git push origin master
 ```
 
 ## 翻墙软件
 https://lanterncn.cn/down
+
+## 资源
+[react 中文文档](http://reactjs.cn/react/docs/getting-started-zh-CN.html)

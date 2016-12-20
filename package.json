@@ -12,6 +12,9 @@
   ],
   "author": "wenjia",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
   "devDependencies": {}
 }

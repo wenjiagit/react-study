@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="./node_modules/react/dist/react.min.js"></script>
+    <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="./babel-core@5.8.38-browser.min.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/babel">
+    var CommentBox = React.createClass({
+        render: function () {
+            return (
+                    <div className="commentBox">
+                        <h1>Comments</h1>
+                        <CommentList />
+                        <CommentForm />
+                    </div>
+            );
+        }
+    });
+
+    // tutorial2.js
+    var CommentList = React.createClass({
+        render: function() {
+            return (
+                    <div className="commentList">
+                        <Comment author="Pete Hunt">This is one comment</Comment>
+                        <Comment author="Jordan Walke">This is *another* comment</Comment>
+                    </div>
+            );
+        }
+    });
+
+    var CommentForm = React.createClass({
+        render: function() {
+            return (
+                    <div className="commentForm">
+                        <input type="text"/>
+                    </div>
+            );
+        }
+    });
+    // tutorial4.js
+    var Comment = React.createClass({
+        render: function() {
+            return (
+                    <div className="comment">
+                        <h2 className="commentAuthor">
+                            {this.props.author}
+                        </h2>
+                        {this.props.children}
+                    </div>
+            );
+        }
+    });
+    ReactDOM.render(
+            <div>
+                <CommentBox />
+            </div>,
+            document.getElementById('content')
+    );
+</script>
+</body>
+</html>
