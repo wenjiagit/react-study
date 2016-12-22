@@ -4,7 +4,7 @@
   "description": "react study project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "./node_modules/.bin/supervisor --harmony  -i ./node_moduls app.js"
   },
   "keywords": [
     "react",
@@ -15,7 +15,12 @@
   "dependencies": {
     "antd": "^2.5.2",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "express": "^4.13.4",
+    "jquery": "^2.2.2",
+    "swig": "^1.4.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
 }

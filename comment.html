@@ -8,29 +8,34 @@
     <script src="./babel-core@5.8.38-browser.min.js"></script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 </head>
-<body><div id="content"></div>
+<body>
+<div id="content"></div>
 <script type="text/babel">
-    // tutorial8.js
-    var data = [
-        {id: 1, author: "Pete Hunt", text: "This is one comment"},
-        {id: 2, author: "Jordan Walke", text: "This is *another* comment"},
-        {id: 3, author: "Jordan", text: "This is Jordan"}
-    ];
     var CommentBox = React.createClass({
-        loadCommentsFromServer: function() {
+        getInitialState: function () {
+            return {
+                data: [],
+                title: '',
+                titleShow: true,
+            };
+        },
+        loadCommentsFromServer: function () {
             $.ajax({
                 url: this.props.url,
                 dataType: 'json',
                 cache: false,
-                success: function(data) {
-                    this.setState({data: data});
+                success: function (commentLsit) {
+                    this.setState({
+                        data: commentLsit,
+                        title: '评论',
+                    });
                 }.bind(this),
-                error: function(xhr, status, err) {
+                error: function (xhr, status, err) {
                     console.error(this.props.url, status, err.toString());
                 }.bind(this)
             });
         },
-        handleCommentSubmit: function(comment) {
+        handleCommentSubmit: function (comment) {
             // TODO: submit to the server and refresh the list
             //提交到服务器并刷新列表
             var comments = this.state.data;
@@ -45,94 +50,127 @@
                 dataType: 'json',
                 type: 'POST',
                 data: comment,
-                success: function(data) {
+                success: function (data) {
                     this.setState({data: data});
                 }.bind(this),
-                error: function(xhr, status, err) {
+                error: function (xhr, status, err) {
                     this.setState({data: comments});
                     console.error(this.props.url, status, err.toString());
                 }.bind(this)
             });
         },
-        getInitialState: function() {
-            return {data: []};
-        },
-        componentDidMount: function() {
+        componentDidMount: function () {
             this.loadCommentsFromServer();
-            setInterval(this.loadCommentsFromServer, this.props.pollInterval);
         },
-        render: function() {
+        handleChangeTitle: function () {
+            this.setState({
+                title: "通过按钮，修改了title"
+            });
+//            $('#title').html("通过按钮，修改了title");
+//            $('#title2 span').html("通过按钮，修改了title");
+        },
+        handleHideTitle: function () {
+            this.setState({
+                titleShow: false,
+            });
+        },
+        handleShowTitle: function () {
+            this.setState({
+                titleShow: true,
+            });
+        },
+        render: function () {
+            var title = this.state.title;
+            var data = this.state.data;
+            var titleShow = this.state.titleShow;
+
             return (
                     <div className="commentBox">
-                        <h1>Comments</h1>
-                        <CommentList data={this.state.data}/>
+                        {titleShow ? <h1>{title}</h1> : null}
+                        <div>
+                            <button onClick={this.handleChangeTitle}>更改title</button>
+                        </div>
+                        <div>
+                            <button onClick={this.handleHideTitle}>隐藏title</button>
+                        </div>
+
+                        <div>
+                            <button onClick={this.handleShowTitle}>显示title</button>
+                        </div>
+                        <CommentList data={data}/>
                         <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
-                     </div>
+                        <p>这个页面的title是：<span>{title}</span></p>
+                    </div>
             );
         }
     });
-        // tutorial10.js
+
+
+
+    // tutorial10.js
     var CommentList = React.createClass({
         render: function () {
             var commentNodes = this.props.data.map(function (comment) {
                 return (
-                        <Comment author = {comment.author} key = {comment.id} >{comment.text} </Comment>
-                    );
+                        <Comment author={comment.author} key={comment.id}>{comment.text} </Comment>
+                );
             });
             return (
-                    <div className = "commentList">
-                    {commentNodes}
+                    <div className="commentList">
+                        {commentNodes}
                     </div >
             );
-         }
+        }
     });
 
     var CommentForm = React.createClass({
-            getInitialState: function() {
-                return {author: '', text: ''};
-            },
-            handleAuthorChange: function(e) {
-                this.setState({author: e.target.value});
-            },
-            handleTextChange: function(e) {
-                this.setState({text: e.target.value});
-            },
-            handleSubmit: function(e) {
-                e.preventDefault();
-                var author = this.state.author.trim();
-                var text = this.state.text.trim();
-                if (!text || !author) {
-                    return;
-                }
-                // TODO: send request to the server
-                //向服务器发送请求
-                this.props.onCommentSubmit({author: author, text: text});
-                this.setState({author: '', text: ''});
-            },
-            render: function() {
-                return (
-                        <form className="commentForm" onSubmit={this.handleSubmit}>
-                            <input type="text" placeholder="Your name" value={this.state.author}  onChange={this.handleAuthorChange}/>
-                            <input type="text" placeholder="Say something..." value={this.state.text} onChange={this.handleTextChange} />
-                            <input type="submit" value="Post" />
-                        </form>
-                     );
-                }
+        getInitialState: function () {
+            return {author: '', text: ''};
+        },
+        handleAuthorChange: function (e) {
+            this.setState({author: e.target.value});
+        },
+        handleTextChange: function (e) {
+            this.setState({text: e.target.value});
+        },
+        handleSubmit: function (e) {
+            e.preventDefault();
+            var author = this.state.author.trim();
+            var text = this.state.text.trim();
+            if (!text || !author) {
+                return;
+            }
+            // TODO: send request to the server
+            //向服务器发送请求
+            this.props.onCommentSubmit({author: author, text: text});
+            this.setState({author: '', text: ''});
+        },
+        render: function () {
+            return (
+                    <form className="commentForm" onSubmit={this.handleSubmit}>
+                        <input type="text" placeholder="Your name" value={this.state.author}
+                               onChange={this.handleAuthorChange}/>
+                        <input type="text" placeholder="Say something..." value={this.state.text}
+                               onChange={this.handleTextChange}/>
+                        <input type="submit" value="Post"/>
+                    </form>
+            );
+        }
     });
     // tutorial4.js
     var Comment = React.createClass({
         render: function () {
             return (
-                    <div className = "comment" >
-                        <h2  className = "commentAuthor">{this.props.author }</h2>
+                    <div className="comment">
+                        <h2 className="commentAuthor">{this.props.author }</h2>
                         {this.props.children }
                     </div>
             );
-         }
+        }
     });
     ReactDOM.render(
-            <div><CommentBox  data = {data}/></div>,
-            document.getElementById('content')
+            <div><CommentBox url="/comment.json" pollInterval={1000}/></div>,
+        document.getElementById('content')
     );
 </script>
 </body>

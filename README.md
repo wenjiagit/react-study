@@ -66,3 +66,9 @@ https://lanterncn.cn/down
 
 ## 资源
 [react 中文文档](http://reactjs.cn/react/docs/getting-started-zh-CN.html)
+
+## 启动nodejs后端
+```
+node app.js
+// 如果修改了后端相关代码，要重新执行此命令，进行node服务器重启
+```
