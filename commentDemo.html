@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="./node_modules/react/dist/react.min.js"></script>
+    <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="./babel-core@5.8.38-browser.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #1d79a0;
+        }
+        .login{
+            width: 100%;
+            padding-top:12%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .title{
+            font-size: 36px;
+            color: #fff;
+        }
+        .commentForm input{
+            padding: 3px 12px;
+            margin: 8px auto;
+            width: 210px;
+            height: 30px;
+            border: 1px solid #999;
+            display: block;
+            font-size: 14px;
+
+        }
+        .loginButton{
+            margin: 10px auto;
+            padding: 8px;
+            width: 67px;
+            color: #fff;
+            background: #47a4a5;
+            cursor: pointer;
+            border:1px solid #999;
+        }
+    </style>
+</head>
+<body>
+<div id="login"></div>
+<div id="content"></div>
+<script type="text/babel">
+    var Login = React.createClass({
+        render : function () {
+            return(
+                    <div className="login">
+                        <div className="title">登录</div>
+                        <div className="loginForm">
+                            <LoginForm />
+                        </div>
+                        <div className="loginButton">
+                            <Button title="登录"></Button>
+                        </div>
+                    </div>
+            )
+        }
+    })
+    var LoginForm = React.createClass({
+        render : function () {
+            return (
+                    <form className="commentForm">
+                        <input type="text" placeholder="请输入用户名"/>
+                        <input type="password" placeholder="请输入密码"/>
+                    </form>
+            )
+        }
+    })
+    var Button =React.createClass({
+        render : function () {
+            return(
+                    <div>{this.props.title}</div>
+            )
+        }
+    })
+/*
+    var data=[
+            {id:1,author:"张三",text:"卖小说"},
+            {id:2,author:"李四",text:"写漫画"}
+        ]
+    var CommentBox = React.createClass({
+        render: function () {
+            return (
+                    <div className="commentBox">
+                        <CommentList data={this.props.data}/>
+                    </div>
+            );
+        }
+    })
+    var Comment = React.createClass({
+        render: function () {
+            return (
+                    <div className="comment">
+                        <h2>{this.props.author}</h2>
+                        {this.props.children}
+                    </div>
+            )
+        }
+    })
+    var CommentList = React.createClass({
+        render: function () {
+            var commentNodes=this.props.data.map(function (comment) {
+                return (
+                        <Comment author={comment.author} key={comment.id}> {comment.text}</Comment>
+                )
+            });
+            return(
+                    <div>{commentNodes}</div>
+            );
+        }
+    })
+    ReactDOM.render(
+            <CommentBox data={data}/>,
+        document.getElementById('content')
+    )*/
+    ReactDOM.render(
+            <Login/>,
+        document.getElementById('login')
+    )
+
+</script>
+</body>
+</html>
