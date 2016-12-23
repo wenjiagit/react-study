@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <script src="./node_modules/react/dist/react.min.js"></script>
+    <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="./babel-core@5.8.38-browser.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1d79a0;
+        }
+
+        .login {
+            width: 100%;
+            padding-top: 12%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 36px;
+            color: #fff;
+        }
+
+        .login-form input {
+            padding: 3px 12px;
+            margin: 8px auto;
+            width: 210px;
+            height: 30px;
+            border: 1px solid #999;
+            display: block;
+            font-size: 14px;
+        }
+
+        .login-form .error {
+            color: red;
+        }
+
+        .login-button {
+            display: inline-block;
+            margin: 10px auto;
+            padding: 8px;
+            color: #fff;
+            background: #47a4a5;
+            cursor: pointer;
+            border: 1px solid #999;
+        }
+
+        .login-button:hover {
+            background: #317da5;
+        }
+
+        .login-button:active {
+            background: #3061a5;
+        }
+    </style>
+</head>
+<body>
+<div id="login"></div>
+<div id="content"></div>
+<script type="text/babel">
+    var Login = React.createClass({
+        getInitialState: function () {
+            return {
+                userName: '',
+                passWord: '',
+                userNameError: '',
+                passWordError: '',
+            };
+        },
+        handleUserNameChange: function (e) {
+            var userName = e.target.value;
+            this.setState({
+                userName: userName,
+            });
+            if(userName){
+                this.setState({
+                    userNameError: '',
+                });
+            } else {
+                this.setState({
+                    userNameError: '用户名不能为空',
+                });
+            }
+        },
+        handlePassWordChange: function (e) {
+            var passWord = e.target.value;
+            this.setState({
+                passWord: passWord,
+            })
+
+            if(passWord){
+                this.setState({
+                    passWordError: '',
+                });
+            } else {
+                this.setState({
+                    passWordError: '密码不能为空',
+                });
+            }
+        },
+        handleLoginButtonClick: function (e) {
+            var userName = this.state.userName;
+            var passWord = this.state.passWord;
+            if (!userName) {
+                this.setState({
+                    userNameError: '用户名不能为空',
+                });
+                return false;
+            }
+            if(!passWord){
+                this.setState({
+                    passWordError: '密码不能为空',
+                });
+                return false;
+            }
+            this.loginForm.submit();
+            // 提交
+            console.log(userName, passWord);
+        },
+        render: function () {
+            return (
+                    <div className="login">
+                        <div className="title">登录</div>
+                        <form ref={function(a){this.loginForm = a}.bind(this)} className="login-form" action="/login.json" method="POST">
+                            <input type="text" placeholder="请输入用户名" onChange={this.handleUserNameChange}
+                                   value={this.state.userName}/>
+                            <div className="error">{this.state.userNameError}</div>
+                            <input type="password" placeholder="请输入密码" onChange={this.handlePassWordChange}
+                                   value={this.state.passWord}/>
+                            <div className="error">{this.state.passWordError}</div>
+                        </form>
+                        <div className="login-button" onClick={this.handleLoginButtonClick}>登录</div>
+                    </div>
+            );
+        }
+    })
+    ReactDOM.render(
+            <Login/>,
+            document.getElementById('login')
+    )
+
+</script>
+</body>
+</html>
