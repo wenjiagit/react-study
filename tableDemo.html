@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="./node_modules/react/dist/react.min.js"></script>
+    <script src="./node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="./babel-core@5.8.38-browser.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        #tableDate table{
+            border-right:1px solid #ccc ;
+            border-bottom: 1px solid #ccc;
+        }
+        #tableDate table  th{
+            border-left:1px solid #ccc ;
+            border-top:1px solid #ccc ;
+            padding: 10px;
+        }
+        #tableDate table  td{
+            border-left:1px solid #ccc;
+            border-top:1px solid #ccc;
+            padding: 10px;
+        }
+        #table{
+            width: 100%;
+        }
+        #table tr th{
+            border-left:1px solid #ccc ;
+            border-top:1px solid #ccc ;
+            border-right:1px solid #ccc ;
+            padding: 10px;
+        }
+        #table tr td{
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="tableDate">
+      <!--  结构
+        FilterableProductTable
+        <div> SearchBar </div>
+        <div>
+            ProductTable
+            <div> ProductCategoryBow </div>
+            <div> ProductRow </div>
+        </div>-->
+</div>
+<div id="table"></div>
+<script type="text/babel">
+    // 准备类型表头
+    var  ProductCategoryBow = React.createClass({
+        render : function () {
+            return (
+                    <tr><th colSpan="2">{this.props.category}</th></tr>
+            )
+        }
+    })
+    // 准备表格表头
+    var ProductRow = React.createClass({
+        render : function () {
+            var name = this.props.pro.stocked ? this.props.pro.name:
+                    <span style = {{ color:'red'}}>{this.props.pro.name}</span>;
+            return(
+                    <tr>
+                        <td>{name}</td>
+                        <td>{this.props.pro.price}</td>
+                    </tr>
+            )
+        }
+    });
+    // 拼凑表格
+    var ProductTable = React.createClass({
+        render : function () {
+            var rows = [];
+            var lastCategory = null;
+            // 循环 表格内容
+            this.props.product.forEach(function(pro){
+                if(pro.category !== lastCategory){
+                    rows.push(
+                        // 循环追加 类型表头
+                         <ProductCategoryBow category={pro.category} key={pro.category}/>
+                    );
+                }
+                rows.push(
+                    //  追加表格数据
+                       <ProductRow pro={pro} key={pro.name}/>
+                );
+                if(pro.name.indexOf(this.props.searchText) === -1 ||(!pro.stocked && this.props.stockOnly)){
+                    return;
+                }
+                lastCategory = pro.category;
+
+            }.bind(this));
+            return(
+                    <table cellPadding="0" cellSpacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>{rows}</tbody>
+                    </table>
+            )
+        }
+    });
+    var SearchBar = React.createClass({
+        render : function () {
+            return(
+                    <form>
+                        <input type="text" value={this.props.searchText} placeholder="Search ..."/>
+                        <p>
+                            <input type="checkbox" checked={this.props.stockOnly}/>
+                            { ''}
+                            Only show products in stock
+                        </p>
+                    </form>
+            )
+        }
+    });
+    var FilterableProductTable = React.createClass({
+        getInitialState : function(){
+            return {
+                searchText:'',
+                stockOnly:true
+            }
+        },
+        render : function () {
+            return(
+                <div>
+                    <SearchBar seachText={this.state.searchText} stockOnly={this.state.stockOnly}/>
+                    <ProductTable product={this.props.product} seachText={this.state.searchText} stockOnly={this.state.stockOnly}/>
+                </div>
+
+            )
+        }
+    });
+    var TableRow = React.createClass({
+        render : function () {
+            return(
+                    <tr>
+                        <td>{this.props.row.name}</td>
+                        <td>{this.props.row.sex}</td>
+                        <td>{this.props.row.age}</td>
+                        <td>{this.props.row.job}</td>
+                    </tr>
+            )
+        }
+    })
+
+    var Table = React.createClass({
+        render : function () {
+            var tableRow = [];
+            this.props.tableList.forEach(function (row) {
+                tableRow.push(
+                    //  追加表格数据
+                        <TableRow row={row} key={row.name}/>
+                );
+            });
+            return(
+                <table cellPadding="0" cellSpacing="0">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>sex</th>
+                        <th>age</th>
+                        <th>job</th>
+                    </tr>
+                    </thead>
+                    <tbody>{tableRow}</tbody>
+                </table>
+            )
+        }
+    })
+
+    var TableList = React.createClass({
+        render : function () {
+            return(
+                    <Table tableList={this.props.tableList}/>
+            )
+        }
+    })
+
+    // 准备数据
+    var tableData = [
+        {category:'球类',price:'$100.00',stocked:true,name:'羽毛球'},
+        {category:'球类',price:'$500.00',stocked:true,name:'篮球'},
+        {category:'数码产品',price:'$10000.00',stocked:true,name:'索尼相机'},
+        {category:'数码产品',price:'$6000.00',stocked:false,name:'IPhone6sP'}
+    ];
+    var data = [
+        {name:'张三',sex:'男',age:'22',job:'主播1'},
+        {name:'李四',sex:'女',age:'20',job:'主播2'},
+        {name:'王五',sex:'男',age:'23',job:'主播3'},
+        {name:'赵六',sex:'女',age:'20',job:'主播4'},
+    ];
+    ReactDOM.render(
+        <FilterableProductTable product={tableData}/>,
+        document.getElementById('tableDate')
+    )
+    ReactDOM.render(
+        <TableList tableList={data}/>,
+        document.getElementById('table')
+    )
+</script>
+</body>
+</html>
