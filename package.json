@@ -14,10 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^2.5.2",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "babel-core": "^6.21.0",
     "express": "^4.13.4",
     "jquery": "^2.2.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "swig": "^1.4.2"
   },
   "devDependencies": {

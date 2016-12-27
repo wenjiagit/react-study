@@ -72,3 +72,10 @@ https://lanterncn.cn/down
 node app.js
 // 如果修改了后端相关代码，要重新执行此命令，进行node服务器重启
 ```
+
+## 搭建webpack环境
+
+### 全局安装webpack
+```
+cnpm install webpack -g
+```
