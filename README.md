@@ -101,3 +101,33 @@ file -> settings -> Appearance&behavior -> System Settings
 git remote rm origin
 git remote add origin git@github.com:wenjiagit/react-study.git
 ```
+## 绑定click方法并传参写法
+```jsx
+...
+// 传入用户id
+handleDelete = (id) => {
+    laert(id);
+}
+
+// 传入事件对象e 和 用户id
+handleDetail = (e, id) {
+    console.log(e);
+    console.log(id);
+}
+...
+{this.state.users.map(user => (
+    <tr>
+        <td>{user.id}</td>
+        <td>{user.name}</td>
+        <td>{user.age}</td>
+        <td>{user.sex}</td>
+        <td>{user.job}</td>
+        <td className="operator">
+            <span onClick={() => this.handleDelete(user.id)}>删除</span>
+            <span onClick={(e) => this.handleDetail(e, user.id)}>详情</span>
+        </td>
+    </tr>
+))}
+...
+```
+
