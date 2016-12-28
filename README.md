@@ -53,7 +53,10 @@ mkdir react-demo
 # 返回上层目录
 cd ..
 ```
-# git 常用命令
+## npm install 作用
+> 安装当前目录下 package.json配置文件中配置的所有依赖包。一般clone新的项目之后，会执行npm install 安装项目所有需要的依赖包。
+
+## git 常用命令
 ```
 git pull //获取最新的git代码
 git add . // git add --all
@@ -79,3 +82,16 @@ node app.js
 ```
 cnpm install webpack -g
 ```
+
+## WebStorm 或者 IDEA编辑器中 wabpack -w 不起作用解决办法
+```
+file -> settings -> Appearance&behavior -> System Settings
+找到 Use "safe write" (save change to temporary file first)
+将前面的钩去掉，不要选中这一项。
+```
+
+## 生成ssh证书，git提交不用密码
+1. git bash 终端中输入：ssh-keygen -t rsa -C “wenjia@qq.com”  然后一路回车
+1. 进入.ssh目录 cd ~/.ssh (~是根目录)
+1. cat id_rsa.pub  复制里面的内容
+1. 打开github网站，登录自己的账号，点击右上角头像，进入settins -> SSH and GPG keys 右上角的New SSH Key 
