@@ -12,17 +12,19 @@ var babelQuery = {
 };
 module.exports = {
     cache: false, //
-    entry: { //
+    //页面入口文件配置
+    entry: {
         login: './src/login/login.jsx',
         home: './src/home/home.jsx'
     },
+    //入口文件输出配置
     output: {
         path: './public',
         publicPath: '',
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx'], // 用于指明程序自动补全识别哪些后缀
         fallback: [path.join(__dirname, '../node_modules')],
         alias: {
             'src': path.resolve(__dirname, '../src'),
@@ -31,13 +33,13 @@ module.exports = {
     resolveLoader: {
         fallback: [path.join(__dirname, '../node_modules')],
     },
-    module: {
-        loaders: [
+    module: {  //定义对模块的处理逻辑
+        loaders: [  //定义一系列的加载器
             {
-                test: /\.js(x)*$/,
-                loader: 'babel',
-                include: path.resolve(__dirname, '../'),
-                exclude: /node_modules/,
+                test: /\.js(x)*$/,  //匹配希望处理文件的路径
+                loader: 'babel',   //babel加载器可以把jsx的语法转换为js的语法
+                include: path.resolve(__dirname, '../'), //字符串或者数组，指包含的文件夹
+                exclude: /node_modules/,  //匹配不希望处理文件的路径
                 query: babelQuery,
             },
             {
@@ -71,7 +73,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new ExtractTextPlugin('css/[name].css', {
+        new ExtractTextPlugin('css/[name].css', { //给CSS打一个完整包
             disable: false,
             allChunks: true
         }),

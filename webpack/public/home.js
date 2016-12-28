@@ -102,6 +102,7 @@
 	    (0, _createClass3.default)(Home, [{
 	        key: 'render',
 	        value: function render() {
+	            console.log(this.state.title);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'home', onClick: this.handleClick },

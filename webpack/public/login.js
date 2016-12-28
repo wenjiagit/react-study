@@ -82,8 +82,49 @@
 	    (0, _inherits3.default)(Login, _Component);
 
 	    function Login() {
+	        var _ref;
+
+	        var _temp, _this, _ret;
+
 	        (0, _classCallCheck3.default)(this, Login);
-	        return (0, _possibleConstructorReturn3.default)(this, (Login.__proto__ || (0, _getPrototypeOf2.default)(Login)).apply(this, arguments));
+
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+
+	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Login.__proto__ || (0, _getPrototypeOf2.default)(Login)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	            userName: '',
+	            userPassWord: '',
+	            nameError: '',
+	            passWordError: ''
+	        }, _this.handleUserNameChange = function (e) {
+	            var name = e.target.value;
+	            _this.setState({
+	                userName: name
+	            });
+	            if (name) {
+	                _this.setState({
+	                    nameError: ''
+	                });
+	            } else {
+	                _this.setState({
+	                    nameError: '用户名不能为空'
+	                });
+	            }
+	        }, _this.handleUserPassWordChange = function (e) {
+	            var passWord = e.target.value;
+	            _this.setState({
+	                userPassWord: passWord
+	            });
+	            if (!passWord) {
+	                _this.setState({
+	                    passWordError: "密码不能为空"
+	                });
+	            }
+	        }, _this.handleLoginButtonClick = function () {
+	            _this.loginForm.submit();
+	            console.log(_this.state.userName);
+	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	    }
 
 	    (0, _createClass3.default)(Login, [{
@@ -92,12 +133,33 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'login' },
-	                '\u6211\u662F\u767B\u5F55',
-	                _react2.default.createElement('br', null),
 	                _react2.default.createElement(
-	                    'a',
-	                    { href: './home.html' },
-	                    '\u9996\u9875'
+	                    'div',
+	                    { className: 'title' },
+	                    '\u767B\u5F55'
+	                ),
+	                _react2.default.createElement(
+	                    'form',
+	                    { className: 'login-form', ref: function (a) {
+	                            this.loginForm = a;
+	                        }.bind(this) },
+	                    _react2.default.createElement('input', { type: 'text', value: this.props.userName, onChange: this.handleUserNameChange }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'error' },
+	                        this.state.nameError
+	                    ),
+	                    _react2.default.createElement('input', { type: 'password', value: this.props.userPassWord, onChange: this.handleUserPassWordChange }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'error' },
+	                        this.state.passWordError
+	                    ),
+	                    _react2.default.createElement(
+	                        'button',
+	                        { className: 'login-button', onClick: this.handleLoginButtonClick },
+	                        '\u767B\u5F55'
+	                    )
 	                )
 	            );
 	        }
