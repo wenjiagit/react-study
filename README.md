@@ -94,4 +94,10 @@ file -> settings -> Appearance&behavior -> System Settings
 1. git bash 终端中输入：ssh-keygen -t rsa -C “wenjia@qq.com”  然后一路回车
 1. 进入.ssh目录 cd ~/.ssh (~是根目录)
 1. cat id_rsa.pub  复制里面的内容
-1. 打开github网站，登录自己的账号，点击右上角头像，进入settins -> SSH and GPG keys 右上角的New SSH Key 
+1. 打开github网站，登录自己的账号，点击右上角头像，进入settins -> SSH and GPG keys 右上角的New SSH Key
+ 
+## https 方式clone的库改成ssh方式：
+```
+git remote rm origin
+git remote add origin git@github.com:wenjiagit/react-study.git
+```
