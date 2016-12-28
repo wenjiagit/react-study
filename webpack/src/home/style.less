@@ -1,4 +1,41 @@
-.home{
-  color: red;
+.home {
   font-size: 20px;
+}
+
+.user-list {
+  width: 100%;
+  border: 1px solid #ccc;
+  thead {
+    background-color: #47a4a5;
+    border-bottom: 1px solid #ccc;
+    th {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  td {
+    padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+  tr {
+    td:last-child {
+      border-right: 0;
+    }
+  }
+  tr:last-child {
+    td {
+      border-bottom: 0;
+    }
+  }
+  td.operator {
+    span {
+      margin: 0 10px;
+      cursor: pointer;
+      &:hover {
+        color: red;
+      }
+    }
+  }
 }

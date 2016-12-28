@@ -23,5 +23,8 @@
     "react-dom": "^15.4.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^2.24.1"
   }
 }

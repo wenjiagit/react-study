@@ -78,42 +78,55 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Home = function (_Component) {
-	    (0, _inherits3.default)(Home, _Component);
+	var About = function (_Component) {
+	    (0, _inherits3.default)(About, _Component);
 
-	    function Home() {
+	    function About() {
 	        var _ref;
 
 	        var _temp, _this, _ret;
 
-	        (0, _classCallCheck3.default)(this, Home);
+	        (0, _classCallCheck3.default)(this, About);
 
 	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 	            args[_key] = arguments[_key];
 	        }
 
-	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	            title: '我是主页title'
+	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = About.__proto__ || (0, _getPrototypeOf2.default)(About)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	            title: '我是关于页面'
 	        }, _this.handleClick = function (e) {
 	            alert(_this.state.title);
 	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	    }
 
-	    (0, _createClass3.default)(Home, [{
+	    (0, _createClass3.default)(About, [{
 	        key: 'render',
 	        value: function render() {
 	            console.log(this.state.title);
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'home', onClick: this.handleClick },
-	                this.state.title
+	                { className: 'about' },
+	                _react2.default.createElement(
+	                    'h1',
+	                    { onClick: this.handleClick },
+	                    this.state.title
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: './home.html' },
+	                        '\u8FD4\u56DE\u9996\u9875'
+	                    )
+	                )
 	            );
 	        }
 	    }]);
-	    return Home;
+	    return About;
 	}(_react.Component);
 
-	_reactDom2.default.render(_react2.default.createElement(Home, null), document.getElementById('main'));
+	_reactDom2.default.render(_react2.default.createElement(About, null), document.getElementById('main'));
 
 /***/ },
 /* 1 */

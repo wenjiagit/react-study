@@ -78,96 +78,173 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Login = function (_Component) {
-	    (0, _inherits3.default)(Login, _Component);
+	var Home = function (_Component) {
+	    (0, _inherits3.default)(Home, _Component);
 
-	    function Login() {
+	    function Home() {
 	        var _ref;
 
 	        var _temp, _this, _ret;
 
-	        (0, _classCallCheck3.default)(this, Login);
+	        (0, _classCallCheck3.default)(this, Home);
 
 	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 	            args[_key] = arguments[_key];
 	        }
 
-	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Login.__proto__ || (0, _getPrototypeOf2.default)(Login)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	            userName: '',
-	            userPassWord: '',
-	            nameError: '',
-	            passWordError: ''
-	        }, _this.handleUserNameChange = function (e) {
-	            var name = e.target.value;
-	            _this.setState({
-	                userName: name
-	            });
-	            if (name) {
-	                _this.setState({
-	                    nameError: ''
+	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	            title: '我是主页title',
+	            users: []
+	        }, _this.handleClick = function (e) {
+	            alert(_this.state.title);
+	        }, _this.handleDelete = function (id) {
+	            var ok = confirm('确定删除此条记录吗？');
+	            if (ok) {
+	                alert('\u53D1\u9001ajax\u8BF7\u6C42\uFF0C\u5220\u9664id=' + id + '\u7684\u7528\u6237\u540D\u5417\uFF1F');
+	                var users = _this.state.users;
+
+	                var newUsers = users.filter(function (user) {
+	                    return user.id != id;
 	                });
-	            } else {
+
 	                _this.setState({
-	                    nameError: '用户名不能为空'
-	                });
-	            }
-	        }, _this.handleUserPassWordChange = function (e) {
-	            var passWord = e.target.value;
-	            _this.setState({
-	                userPassWord: passWord
-	            });
-	            if (!passWord) {
-	                _this.setState({
-	                    passWordError: "密码不能为空"
+	                    users: newUsers
 	                });
 	            }
-	        }, _this.handleLoginButtonClick = function () {
-	            _this.loginForm.submit();
-	            console.log(_this.state.userName);
 	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	    }
 
-	    (0, _createClass3.default)(Login, [{
+	    (0, _createClass3.default)(Home, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var data = [{ id: 1, name: '张三', sex: '男', age: '22', job: '主播1' }, { id: 2, name: '李四', sex: '女', age: '20', job: '主播2' }, { id: 3, name: '王五', sex: '男', age: '23', job: '主播3' }, { id: 4, name: '赵六', sex: '女', age: '20', job: '主播4' }, { id: 5, name: '赵六', sex: '女', age: '20', job: '主播4' }];
+	            this.setState({
+	                users: data
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
+	            console.log(this.state.title);
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'login' },
+	                { className: 'home' },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'title' },
-	                    '\u767B\u5F55'
+	                    'h1',
+	                    { onClick: this.handleClick },
+	                    this.state.title
 	                ),
 	                _react2.default.createElement(
-	                    'form',
-	                    { className: 'login-form', ref: function (a) {
-	                            this.loginForm = a;
-	                        }.bind(this) },
-	                    _react2.default.createElement('input', { type: 'text', value: this.props.userName, onChange: this.handleUserNameChange }),
+	                    'div',
+	                    null,
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'error' },
-	                        this.state.nameError
+	                        'a',
+	                        { href: './about.html' },
+	                        '\u5173\u4E8E\u6211\u4EEC'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'table',
+	                    { className: 'user-list', cellPadding: '0', cellSpacing: '0' },
+	                    _react2.default.createElement(
+	                        'thead',
+	                        null,
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'id'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                '\u59D3\u540D'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                '\u5E74\u9F84'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                '\u6027\u522B'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                '\u5DE5\u4F5C'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                '\u64CD\u4F5C'
+	                            )
+	                        )
 	                    ),
-	                    _react2.default.createElement('input', { type: 'password', value: this.props.userPassWord, onChange: this.handleUserPassWordChange }),
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'error' },
-	                        this.state.passWordError
-	                    ),
-	                    _react2.default.createElement(
-	                        'button',
-	                        { className: 'login-button', onClick: this.handleLoginButtonClick },
-	                        '\u767B\u5F55'
+	                        'tbody',
+	                        null,
+	                        this.state.users.map(function (user) {
+	                            return _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    user.id
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    user.name
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    user.age
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    user.sex
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    user.job
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    { className: 'operator' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { onClick: function onClick() {
+	                                                return _this2.handleDelete(user.id);
+	                                            } },
+	                                        '\u5220\u9664'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        '\u8BE6\u60C5'
+	                                    )
+	                                )
+	                            );
+	                        })
 	                    )
 	                )
 	            );
 	        }
 	    }]);
-	    return Login;
+	    return Home;
 	}(_react.Component);
 
-	_reactDom2.default.render(_react2.default.createElement(Login, null), document.getElementById('main'));
+	_reactDom2.default.render(_react2.default.createElement(Home, null), document.getElementById('main'));
 
 /***/ },
 /* 1 */

@@ -28,11 +28,11 @@ body {
 .login-button {
   display: inline-block;
   margin: 10px auto;
-  padding: 8px;
+  padding: 8px 16px;
   color: #fff;
   background: #47a4a5;
   cursor: pointer;
-  border: 1px solid #999;
+  border: 1px solid #5e9983;
 }
 .login-button:hover {
   background: #317da5;

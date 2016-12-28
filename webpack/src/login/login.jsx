@@ -5,47 +5,81 @@ import './style.less';
 class Login extends Component {
     state = {
         userName: '',
-        userPassWord:'',
-        nameError:'',
-        passWordError:'',
+        userPassWord: '',
+        nameError: '',
+        passWordError: '',
     }
-    handleUserNameChange = (e) =>{
-        let name=e.target.value;
+    handleUserNameChange = (e) => {
+        let userName = e.target.value;
         this.setState({
-            userName:name
+            userName
         });
-        if(!name){
+        if (!userName) {
             this.setState({
                 nameError: '用户名不能为空',
             });
-        }
-    }
-    handleUserPassWordChange = (e) =>{
-        let passWord=e.target.value;
-        this.setState({
-            userPassWord:passWord
-        });
-        if(!passWord){
+        } else {
             this.setState({
-                passWordError:"密码不能为空"
+                nameError: '',
             });
         }
+        // TODO 完善其他校验
     }
-    handleLoginButtonClick =()=>{
-        this.loginForm.submit();
+
+    handleUserPassWordChange = (e) => {
+        const userPassWord = e.target.value;
+        this.setState({
+            userPassWord
+        });
+        if (!userPassWord) {
+            this.setState({
+                passWordError: '密码不能为空'
+            });
+        } else {
+            this.setState({
+                passWordError: ''
+            });
+        }
+
+        // TODO 完善其他校验
+    }
+    handleLoginButtonClick = (e)=> {
+        e.preventDefault();
+
         console.log(this.state.userName);
+        const userName = this.state.userName;
+        const userPassWord = this.state.userPassWord;
+
+        if (!userName) {
+            this.setState({
+                nameError: '用户名不能为空',
+            });
+            return false;
+        }
+
+        if (!userPassWord) {
+            this.setState({
+                passWordError: '密码不能为空'
+            });
+            return false;
+        }
+        // TODO 完善校验
+        // TODO this.loginForm.submit();
+        location.href = './home.html'
+        return false;
     }
+
     render() {
         return (
             <div className="login">
                 <div className="title">登录</div>
-                <form className="login-form" ref={function(a){this.loginForm = a}.bind(this)}>
-                    <input type="text" value={this.props.userName} onChange={this.handleUserNameChange}/>
+                <form className="login-form" ref={ (a) => this.loginForm = a}>
+                    <input type="text" placeholder="请输入用户名" onChange={this.handleUserNameChange}/>
                     <div className="error">{this.state.nameError}</div>
-                    <input type="password" value={this.props.userPassWord} onChange={this.handleUserPassWordChange}/>
+                    <input type="password" placeholder="请输入密码" onChange={this.handleUserPassWordChange}/>
                     <div className="error">{this.state.passWordError}</div>
                     <button className="login-button" onClick={this.handleLoginButtonClick}>登录</button>
-                </form>f
+                </form>
             </div>
         );
     }
