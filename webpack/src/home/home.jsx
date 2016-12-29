@@ -1,8 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import './style.less';
+import Footer from '../footer/footer';
+import Header from '../header/header';
 
-class Home extends Component {
+class Home extends Component { 
     state = {
         title: '人员管理列表',
         users: [],
@@ -46,27 +48,13 @@ class Home extends Component {
             });
         }
     };
-    handleDetail = (e) =>{
-        const ok = confirm('确定进入当前详情页面吗？');
-        if (ok) {
-            alert(`发送ajax请求，进入当前id=${e}详情页面`);
-            location.href = `./details.html?id=${e}`;
-        }
+    handleDetail = (id) =>{
+        location.href = `./details.html?id=${id}`;
     }
     render() {
         return (
             <div className="home">
-                <div className="top-nav">
-                    <ul>
-                        <li>首页</li>
-                        <li>新闻</li>
-                        <li>投资</li>
-                        <li>产品</li>
-                        <li>企业</li>
-                        <li>顾问</li>
-                        <li>关于</li>
-                    </ul>
-                </div>
+                <Header/>
                 <div className="left-nav">
                     <ul>
                         <li>菜单一</li>
@@ -82,7 +70,7 @@ class Home extends Component {
                     <h3>{this.state.title}</h3>
                     <table className="user-list" cellPadding="0" cellSpacing="0">
                         <thead>
-                        <tr>
+                        <tr className="head-tr">
                             <th>id</th>
                             <th>姓名</th>
                             <th>年龄</th>
@@ -93,7 +81,7 @@ class Home extends Component {
                         </thead>
                         <tbody>
                         {this.state.users.map(user => (
-                            <tr>
+                            <tr key={user.id}>
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.age}</td>
@@ -108,19 +96,9 @@ class Home extends Component {
                     </table>
                 </div>
                 <div className="clear-float"></div>
-                <Footer/>
+                <Footer message="首页底部"/>
             </div>
         );
-    }
-}
-class Footer extends Component{
-    state ={
-        title: '我是底部'
-    }
-    render() {
-        return (
-            <div className="footer">{this.state.title}</div>
-        )
     }
 }
 ReactDOM.render(<Home />, document.getElementById('main'));

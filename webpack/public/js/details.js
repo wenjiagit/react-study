@@ -76,23 +76,144 @@
 
 	__webpack_require__(265);
 
+	var _footer = __webpack_require__(268);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	var _header = __webpack_require__(270);
+
+	var _header2 = _interopRequireDefault(_header);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function GetRequest() {
+	    var url = location.search;
+	    var theRequest = {};
+	    if (url.indexOf("?") != -1) {
+	        var str = url.substr(1);
+	        var strs = str.split("&");
+	        for (var i = 0; i < strs.length; i++) {
+	            theRequest[strs[i].split("=")[0]] = strs[i].split("=")[1];
+	        }
+	    }
+	    return theRequest;
+	}
 
 	var Details = function (_Component) {
 	    (0, _inherits3.default)(Details, _Component);
 
 	    function Details() {
+	        var _ref;
+
+	        var _temp, _this, _ret;
+
 	        (0, _classCallCheck3.default)(this, Details);
-	        return (0, _possibleConstructorReturn3.default)(this, (Details.__proto__ || (0, _getPrototypeOf2.default)(Details)).apply(this, arguments));
+
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+
+	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Details.__proto__ || (0, _getPrototypeOf2.default)(Details)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	            user: {}
+	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	    }
 
 	    (0, _createClass3.default)(Details, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _GetRequest = GetRequest(),
+	                id = _GetRequest.id;
+
+	            var data = [{ id: 1, name: '张三', sex: '男', age: '22', job: '主播1' }, { id: 2, name: '李四', sex: '女', age: '20', job: '主播2' }, { id: 3, name: '王五', sex: '男', age: '23', job: '主播3' }, { id: 4, name: '赵六', sex: '女', age: '20', job: '主播4' }, { id: 5, name: '赵六', sex: '女', age: '20', job: '主播4' }];
+	            var users = data.filter(function (user) {
+	                return user.id == id;
+	            });
+	            if (users && users.length) {
+	                var user = users[0];
+	                this.setState({
+	                    user: user
+	                });
+	            }
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var user = this.state.user;
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'details' },
-	                '\u6211\u662F\u8BE6\u60C5'
+	                _react2.default.createElement(_header2.default, null),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u7528\u6237id\uFF1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        user.id
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u59D3\u540D\uFF1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        user.name
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u6027\u522B\uFF1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        user.sex
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5E74\u9F84\uFF1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        user.age
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5DE5\u4F5C\uFF1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        user.job
+	                    )
+	                ),
+	                _react2.default.createElement(_footer2.default, { message: '\u8BE6\u60C5\u9875\u5E95\u90E8' })
 	            );
 	        }
 	    }]);
@@ -23047,6 +23168,182 @@
 /***/ },
 /* 264 */,
 /* 265 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 266 */,
+/* 267 */,
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(269);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Footer = function (_Component) {
+	    (0, _inherits3.default)(Footer, _Component);
+
+	    function Footer() {
+	        (0, _classCallCheck3.default)(this, Footer);
+	        return (0, _possibleConstructorReturn3.default)(this, (Footer.__proto__ || (0, _getPrototypeOf2.default)(Footer)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Footer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'footer' },
+	                this.props.message
+	            );
+	        }
+	    }]);
+	    return Footer;
+	}(_react.Component);
+
+	exports.default = Footer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 269 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(271);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = function (_Component) {
+	    (0, _inherits3.default)(Header, _Component);
+
+	    function Header() {
+	        (0, _classCallCheck3.default)(this, Header);
+	        return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'top-nav' },
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u9996\u9875'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u65B0\u95FB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u6295\u8D44'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u4EA7\u54C1'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u4F01\u4E1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u987E\u95EE'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u5173\u4E8E'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	    return Header;
+	}(_react.Component);
+
+	exports.default = Header;
+	module.exports = exports['default'];
+
+/***/ },
+/* 271 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

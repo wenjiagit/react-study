@@ -76,6 +76,14 @@
 
 	__webpack_require__(266);
 
+	var _footer = __webpack_require__(268);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	var _header = __webpack_require__(270);
+
+	var _header2 = _interopRequireDefault(_header);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Home = function (_Component) {
@@ -109,12 +117,8 @@
 	                    users: newUsers
 	                });
 	            }
-	        }, _this.handleDetail = function (e) {
-	            var ok = confirm('确定进入当前详情页面吗？');
-	            if (ok) {
-	                alert('\u53D1\u9001ajax\u8BF7\u6C42\uFF0C\u8FDB\u5165\u5F53\u524Did=' + e + '\u8BE6\u60C5\u9875\u9762');
-	                location.href = './details.html?id=' + e;
-	            }
+	        }, _this.handleDetail = function (id) {
+	            location.href = './details.html?id=' + id;
 	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	    }
 
@@ -134,49 +138,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'home' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'top-nav' },
-	                    _react2.default.createElement(
-	                        'ul',
-	                        null,
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u9996\u9875'
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u65B0\u95FB'
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u6295\u8D44'
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u4EA7\u54C1'
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u4F01\u4E1A'
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u987E\u95EE'
-	                        ),
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            '\u5173\u4E8E'
-	                        )
-	                    )
-	                ),
+	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'left-nav' },
@@ -236,7 +198,7 @@
 	                            null,
 	                            _react2.default.createElement(
 	                                'tr',
-	                                null,
+	                                { className: 'head-tr' },
 	                                _react2.default.createElement(
 	                                    'th',
 	                                    null,
@@ -275,7 +237,7 @@
 	                            this.state.users.map(function (user) {
 	                                return _react2.default.createElement(
 	                                    'tr',
-	                                    null,
+	                                    { key: user.id },
 	                                    _react2.default.createElement(
 	                                        'td',
 	                                        null,
@@ -325,43 +287,11 @@
 	                    )
 	                ),
 	                _react2.default.createElement('div', { className: 'clear-float' }),
-	                _react2.default.createElement(Footer, null)
+	                _react2.default.createElement(_footer2.default, { message: '\u9996\u9875\u5E95\u90E8' })
 	            );
 	        }
 	    }]);
 	    return Home;
-	}(_react.Component);
-
-	var Footer = function (_Component2) {
-	    (0, _inherits3.default)(Footer, _Component2);
-
-	    function Footer() {
-	        var _ref2;
-
-	        var _temp2, _this3, _ret2;
-
-	        (0, _classCallCheck3.default)(this, Footer);
-
-	        for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	            args[_key2] = arguments[_key2];
-	        }
-
-	        return _ret2 = (_temp2 = (_this3 = (0, _possibleConstructorReturn3.default)(this, (_ref2 = Footer.__proto__ || (0, _getPrototypeOf2.default)(Footer)).call.apply(_ref2, [this].concat(args))), _this3), _this3.state = {
-	            title: '我是底部'
-	        }, _temp2), (0, _possibleConstructorReturn3.default)(_this3, _ret2);
-	    }
-
-	    (0, _createClass3.default)(Footer, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'footer' },
-	                this.state.title
-	            );
-	        }
-	    }]);
-	    return Footer;
 	}(_react.Component);
 
 	_reactDom2.default.render(_react2.default.createElement(Home, null), document.getElementById('main'));
@@ -23313,6 +23243,181 @@
 /* 264 */,
 /* 265 */,
 /* 266 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 267 */,
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(269);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Footer = function (_Component) {
+	    (0, _inherits3.default)(Footer, _Component);
+
+	    function Footer() {
+	        (0, _classCallCheck3.default)(this, Footer);
+	        return (0, _possibleConstructorReturn3.default)(this, (Footer.__proto__ || (0, _getPrototypeOf2.default)(Footer)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Footer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'footer' },
+	                this.props.message
+	            );
+	        }
+	    }]);
+	    return Footer;
+	}(_react.Component);
+
+	exports.default = Footer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 269 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(271);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = function (_Component) {
+	    (0, _inherits3.default)(Header, _Component);
+
+	    function Header() {
+	        (0, _classCallCheck3.default)(this, Header);
+	        return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'top-nav' },
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u9996\u9875'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u65B0\u95FB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u6295\u8D44'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u4EA7\u54C1'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u4F01\u4E1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u987E\u95EE'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u5173\u4E8E'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	    return Header;
+	}(_react.Component);
+
+	exports.default = Header;
+	module.exports = exports['default'];
+
+/***/ },
+/* 271 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
