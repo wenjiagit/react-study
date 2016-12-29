@@ -74,126 +74,32 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	__webpack_require__(267);
+	__webpack_require__(265);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Login = function (_Component) {
-	    (0, _inherits3.default)(Login, _Component);
+	var Details = function (_Component) {
+	    (0, _inherits3.default)(Details, _Component);
 
-	    function Login() {
-	        var _ref;
-
-	        var _temp, _this, _ret;
-
-	        (0, _classCallCheck3.default)(this, Login);
-
-	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	            args[_key] = arguments[_key];
-	        }
-
-	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Login.__proto__ || (0, _getPrototypeOf2.default)(Login)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	            userName: '',
-	            userPassWord: '',
-	            nameError: '',
-	            passWordError: ''
-	        }, _this.handleUserNameChange = function (e) {
-	            var userName = e.target.value;
-	            _this.setState({
-	                userName: userName
-	            });
-	            if (!userName) {
-	                _this.setState({
-	                    nameError: '用户名不能为空'
-	                });
-	            } else {
-	                _this.setState({
-	                    nameError: ''
-	                });
-	            }
-	        }, _this.handleUserPassWordChange = function (e) {
-	            var userPassWord = e.target.value;
-	            _this.setState({
-	                userPassWord: userPassWord
-	            });
-	            if (!userPassWord) {
-	                _this.setState({
-	                    passWordError: '密码不能为空'
-	                });
-	            } else {
-	                _this.setState({
-	                    passWordError: ''
-	                });
-	            }
-	        }, _this.handleLoginButtonClick = function (e) {
-	            e.preventDefault();
-
-	            console.log(_this.state.userName);
-	            var userName = _this.state.userName;
-	            var userPassWord = _this.state.userPassWord;
-
-	            if (!userName) {
-	                _this.setState({
-	                    nameError: '用户名不能为空'
-	                });
-	                return false;
-	            }
-
-	            if (!userPassWord) {
-	                _this.setState({
-	                    passWordError: '密码不能为空'
-	                });
-	                return false;
-	            }
-
-	            location.href = './home.html';
-	            return false;
-	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+	    function Details() {
+	        (0, _classCallCheck3.default)(this, Details);
+	        return (0, _possibleConstructorReturn3.default)(this, (Details.__proto__ || (0, _getPrototypeOf2.default)(Details)).apply(this, arguments));
 	    }
 
-	    (0, _createClass3.default)(Login, [{
+	    (0, _createClass3.default)(Details, [{
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
-
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'login' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'title' },
-	                    '\u767B\u5F55'
-	                ),
-	                _react2.default.createElement(
-	                    'form',
-	                    { className: 'login-form', ref: function ref(a) {
-	                            return _this2.loginForm = a;
-	                        } },
-	                    _react2.default.createElement('input', { type: 'text', placeholder: '\u8BF7\u8F93\u5165\u7528\u6237\u540D', onChange: this.handleUserNameChange }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'error' },
-	                        this.state.nameError
-	                    ),
-	                    _react2.default.createElement('input', { type: 'password', placeholder: '\u8BF7\u8F93\u5165\u5BC6\u7801', onChange: this.handleUserPassWordChange }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'error' },
-	                        this.state.passWordError
-	                    ),
-	                    _react2.default.createElement(
-	                        'button',
-	                        { className: 'login-button', onClick: this.handleLoginButtonClick },
-	                        '\u767B\u5F55'
-	                    )
-	                )
+	                { className: 'details' },
+	                '\u6211\u662F\u8BE6\u60C5'
 	            );
 	        }
 	    }]);
-	    return Login;
+	    return Details;
 	}(_react.Component);
 
-	_reactDom2.default.render(_react2.default.createElement(Login, null), document.getElementById('main'));
+	_reactDom2.default.render(_react2.default.createElement(Details, null), document.getElementById('main'));
 
 /***/ },
 /* 1 */
@@ -23140,9 +23046,7 @@
 
 /***/ },
 /* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */
+/* 265 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

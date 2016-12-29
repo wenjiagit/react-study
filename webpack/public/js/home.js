@@ -74,7 +74,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	__webpack_require__(265);
+	__webpack_require__(266);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -93,14 +93,12 @@
 	        }
 
 	        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	            title: '我是主页title',
+	            title: '人员管理列表',
 	            users: []
-	        }, _this.handleClick = function (e) {
-	            alert(_this.state.title);
 	        }, _this.handleDelete = function (id) {
 	            var ok = confirm('确定删除此条记录吗？');
 	            if (ok) {
-	                alert('\u53D1\u9001ajax\u8BF7\u6C42\uFF0C\u5220\u9664id=' + id + '\u7684\u7528\u6237\u540D\u5417\uFF1F');
+	                alert('\u53D1\u9001ajax\u8BF7\u6C42\uFF0C\u5220\u9664id=' + id + '\u7684\u7528\u6237\u540D');
 	                var users = _this.state.users;
 
 	                var newUsers = users.filter(function (user) {
@@ -110,6 +108,12 @@
 	                _this.setState({
 	                    users: newUsers
 	                });
+	            }
+	        }, _this.handleDetail = function (e) {
+	            var ok = confirm('确定进入当前详情页面吗？');
+	            if (ok) {
+	                alert('\u53D1\u9001ajax\u8BF7\u6C42\uFF0C\u8FDB\u5165\u5F53\u524Did=' + e + '\u8BE6\u60C5\u9875\u9762');
+	                location.href = './details.html?id=' + e;
 	            }
 	        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	    }
@@ -127,121 +131,237 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            console.log(this.state.title);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'home' },
 	                _react2.default.createElement(
-	                    'h1',
-	                    { onClick: this.handleClick },
-	                    this.state.title
+	                    'div',
+	                    { className: 'top-nav' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u9996\u9875'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u65B0\u95FB'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u6295\u8D44'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u4EA7\u54C1'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u4F01\u4E1A'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u987E\u95EE'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u5173\u4E8E'
+	                        )
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    null,
+	                    { className: 'left-nav' },
 	                    _react2.default.createElement(
-	                        'a',
-	                        { href: './about.html' },
-	                        '\u5173\u4E8E\u6211\u4EEC'
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u4E00'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u4E8C'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u4E09'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u56DB'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u4E94'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u516D'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u83DC\u5355\u4E03'
+	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    'table',
-	                    { className: 'user-list', cellPadding: '0', cellSpacing: '0' },
+	                    'div',
+	                    { className: 'center' },
 	                    _react2.default.createElement(
-	                        'thead',
+	                        'h3',
 	                        null,
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                'id'
-	                            ),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                '\u59D3\u540D'
-	                            ),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                '\u5E74\u9F84'
-	                            ),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                '\u6027\u522B'
-	                            ),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                '\u5DE5\u4F5C'
-	                            ),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                '\u64CD\u4F5C'
-	                            )
-	                        )
+	                        this.state.title
 	                    ),
 	                    _react2.default.createElement(
-	                        'tbody',
-	                        null,
-	                        this.state.users.map(function (user) {
-	                            return _react2.default.createElement(
+	                        'table',
+	                        { className: 'user-list', cellPadding: '0', cellSpacing: '0' },
+	                        _react2.default.createElement(
+	                            'thead',
+	                            null,
+	                            _react2.default.createElement(
 	                                'tr',
 	                                null,
 	                                _react2.default.createElement(
-	                                    'td',
+	                                    'th',
 	                                    null,
-	                                    user.id
+	                                    'id'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
+	                                    'th',
 	                                    null,
-	                                    user.name
+	                                    '\u59D3\u540D'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
+	                                    'th',
 	                                    null,
-	                                    user.age
+	                                    '\u5E74\u9F84'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
+	                                    'th',
 	                                    null,
-	                                    user.sex
+	                                    '\u6027\u522B'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
+	                                    'th',
 	                                    null,
-	                                    user.job
+	                                    '\u5DE5\u4F5C'
 	                                ),
 	                                _react2.default.createElement(
-	                                    'td',
-	                                    { className: 'operator' },
+	                                    'th',
+	                                    null,
+	                                    '\u64CD\u4F5C'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tbody',
+	                            null,
+	                            this.state.users.map(function (user) {
+	                                return _react2.default.createElement(
+	                                    'tr',
+	                                    null,
 	                                    _react2.default.createElement(
-	                                        'span',
-	                                        { onClick: function onClick() {
-	                                                return _this2.handleDelete(user.id);
-	                                            } },
-	                                        '\u5220\u9664'
+	                                        'td',
+	                                        null,
+	                                        user.id
 	                                    ),
 	                                    _react2.default.createElement(
-	                                        'span',
+	                                        'td',
 	                                        null,
-	                                        '\u8BE6\u60C5'
+	                                        user.name
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        user.age
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        user.sex
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        user.job
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        { className: 'operator' },
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { onClick: function onClick() {
+	                                                    return _this2.handleDelete(user.id);
+	                                                } },
+	                                            '\u5220\u9664'
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { onClick: function onClick() {
+	                                                    return _this2.handleDetail(user.id);
+	                                                } },
+	                                            '\u8BE6\u60C5'
+	                                        )
 	                                    )
-	                                )
-	                            );
-	                        })
+	                                );
+	                            })
+	                        )
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement('div', { className: 'clear-float' }),
+	                _react2.default.createElement(Footer, null)
 	            );
 	        }
 	    }]);
 	    return Home;
+	}(_react.Component);
+
+	var Footer = function (_Component2) {
+	    (0, _inherits3.default)(Footer, _Component2);
+
+	    function Footer() {
+	        var _ref2;
+
+	        var _temp2, _this3, _ret2;
+
+	        (0, _classCallCheck3.default)(this, Footer);
+
+	        for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	            args[_key2] = arguments[_key2];
+	        }
+
+	        return _ret2 = (_temp2 = (_this3 = (0, _possibleConstructorReturn3.default)(this, (_ref2 = Footer.__proto__ || (0, _getPrototypeOf2.default)(Footer)).call.apply(_ref2, [this].concat(args))), _this3), _this3.state = {
+	            title: '我是底部'
+	        }, _temp2), (0, _possibleConstructorReturn3.default)(_this3, _ret2);
+	    }
+
+	    (0, _createClass3.default)(Footer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'footer' },
+	                this.state.title
+	            );
+	        }
+	    }]);
+	    return Footer;
 	}(_react.Component);
 
 	_reactDom2.default.render(_react2.default.createElement(Home, null), document.getElementById('main'));
@@ -23191,7 +23311,8 @@
 
 /***/ },
 /* 264 */,
-/* 265 */
+/* 265 */,
+/* 266 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

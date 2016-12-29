@@ -17,6 +17,7 @@ var entry = {
     login: './src/login/login.jsx',
     home: './src/home/home.jsx',
     about: './src/about/about.jsx',
+    details: './src/details/details.jsx',
 };
 var htmlPlugins = [];
 
@@ -24,7 +25,7 @@ for(var name in entry){
     htmlPlugins.push(new HtmlWebpackPlugin({
         chunks: [name],
         template: 'template.html',
-        filename: 'html/'+ name + '.html'
+        filename: ''+ name + '.html'
     }));
 }
 
