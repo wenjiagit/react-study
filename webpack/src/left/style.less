@@ -1,0 +1,32 @@
+.left-nav {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  width: 200px;
+  height: auto;
+  overflow-y: scroll;
+  .parent-ul {
+    margin: -1px 0 0 -40px;
+  }
+  .parent-ul li{
+    list-style: none;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+    padding: 12px;
+    text-align: center;
+    &:hover {
+      background: #259da0;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  .children-ul{
+    margin: -1px 0 0 -40px;
+    list-style: none;
+  }
+  .children-ul li{
+    border: 1px solid #e4e4e4;
+  }
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './style.less';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import Left from '../left/left';
 
 function GetRequest() {
     const url = location.search; //获取url中"?"符后的字串
@@ -46,6 +47,7 @@ class Details extends Component {
         return (
             <div className="details">
                 <Header/>
+                <Left/>
                 <div><span>用户id：</span><span>{user.id}</span></div>
                 <div><span>姓名：</span><span>{user.name}</span></div>
                 <div><span>性别：</span><span>{user.sex}</span></div>

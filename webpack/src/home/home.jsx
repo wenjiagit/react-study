@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './style.less';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import Left from '../left/left';
 
 class Home extends Component { 
     state = {
@@ -55,17 +56,7 @@ class Home extends Component {
         return (
             <div className="home">
                 <Header/>
-                <div className="left-nav">
-                    <ul>
-                        <li>菜单一</li>
-                        <li>菜单二</li>
-                        <li>菜单三</li>
-                        <li>菜单四</li>
-                        <li>菜单五</li>
-                        <li>菜单六</li>
-                        <li>菜单七</li>
-                    </ul>
-                </div>
+                <Left/>
                 <div className="center">
                     <h3>{this.state.title}</h3>
                     <table className="user-list" cellPadding="0" cellSpacing="0">
