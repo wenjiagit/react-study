@@ -84,9 +84,13 @@
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _left = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../left/left\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _left = __webpack_require__(270);
 
 	var _left2 = _interopRequireDefault(_left);
+
+	var _content = __webpack_require__(274);
+
+	var _content2 = _interopRequireDefault(_content);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -149,73 +153,77 @@
 	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(_left2.default, null),
 	                _react2.default.createElement(
-	                    'div',
+	                    _content2.default,
 	                    null,
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        '\u7528\u6237id\uFF1A'
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '\u7528\u6237id\uFF1A'
+	                        ),
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            user.id
+	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        user.id
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        '\u59D3\u540D\uFF1A'
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '\u59D3\u540D\uFF1A'
+	                        ),
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            user.name
+	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        user.name
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        '\u6027\u522B\uFF1A'
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '\u6027\u522B\uFF1A'
+	                        ),
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            user.sex
+	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        user.sex
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        '\u5E74\u9F84\uFF1A'
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '\u5E74\u9F84\uFF1A'
+	                        ),
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            user.age
+	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        user.age
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        '\u5DE5\u4F5C\uFF1A'
-	                    ),
-	                    _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        user.job
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '\u5DE5\u4F5C\uFF1A'
+	                        ),
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            user.job
+	                        )
 	                    )
 	                ),
 	                _react2.default.createElement(_footer2.default, { message: '\u8BE6\u60C5\u9875\u5E95\u90E8' })
@@ -23303,7 +23311,11 @@
 	                    _react2.default.createElement(
 	                        'li',
 	                        null,
-	                        '\u9996\u9875'
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: './home.html' },
+	                            '\u9996\u9875'
+	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        'li',
@@ -23333,7 +23345,11 @@
 	                    _react2.default.createElement(
 	                        'li',
 	                        null,
-	                        '\u5173\u4E8E'
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: './about.html' },
+	                            '\u5173\u4E8E'
+	                        )
 	                    )
 	                )
 	            );
@@ -23347,6 +23363,207 @@
 
 /***/ },
 /* 269 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(271);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Left = function (_Component) {
+	    (0, _inherits3.default)(Left, _Component);
+
+	    function Left() {
+	        (0, _classCallCheck3.default)(this, Left);
+	        return (0, _possibleConstructorReturn3.default)(this, (Left.__proto__ || (0, _getPrototypeOf2.default)(Left)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Left, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'left-nav' },
+	                _react2.default.createElement(
+	                    'ul',
+	                    { className: 'parent-ul' },
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E00'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E8C'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E09'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u56DB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E94'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u516D'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E03'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E00'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E8C'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E09'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u56DB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E94'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	    return Left;
+	}(_react.Component);
+
+	exports.default = Left;
+	module.exports = exports['default'];
+
+/***/ },
+/* 271 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 272 */,
+/* 273 */,
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(275);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Content = function (_Component) {
+	    (0, _inherits3.default)(Content, _Component);
+
+	    function Content() {
+	        (0, _classCallCheck3.default)(this, Content);
+	        return (0, _possibleConstructorReturn3.default)(this, (Content.__proto__ || (0, _getPrototypeOf2.default)(Content)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Content, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'content' },
+	                this.props.children
+	            );
+	        }
+	    }]);
+	    return Content;
+	}(_react.Component);
+
+	exports.default = Content;
+	module.exports = exports['default'];
+
+/***/ },
+/* 275 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

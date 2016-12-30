@@ -4,16 +4,17 @@ import './style.less';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Left from '../left/left';
+import Content from '../content/content';
 
-class Home extends Component { 
+class Home extends Component {
     state = {
         title: '人员管理列表',
         users: [],
     };
 
     /*handleClick = (e) => {
-        alert(this.state.title);
-    }*/
+     alert(this.state.title);
+     }*/
 
     componentDidMount() {
         // TODO 发送ajax请求，获取users数据
@@ -28,6 +29,7 @@ class Home extends Component {
             users: data
         });
     };
+
     handleDelete = (id) => {
         const ok = confirm('确定删除此条记录吗？');
         if (ok) {
@@ -49,44 +51,46 @@ class Home extends Component {
             });
         }
     };
-    handleDetail = (id) =>{
+    handleDetail = (id) => {
         location.href = `./details.html?id=${id}`;
     }
+
     render() {
         return (
             <div className="home">
                 <Header/>
                 <Left/>
-                <div className="center">
-                    <h3>{this.state.title}</h3>
-                    <table className="user-list" cellPadding="0" cellSpacing="0">
-                        <thead>
-                        <tr className="head-tr">
-                            <th>id</th>
-                            <th>姓名</th>
-                            <th>年龄</th>
-                            <th>性别</th>
-                            <th>工作</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {this.state.users.map(user => (
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
-                                <td>{user.name}</td>
-                                <td>{user.age}</td>
-                                <td>{user.sex}</td>
-                                <td>{user.job}</td>
-                                <td className="operator"><span onClick={() => this.handleDelete(user.id)}>删除</span>
-                                    <span onClick={() => this.handleDetail(user.id)}>详情</span>
-                                </td>
+                <Content>
+                    <div className="center">
+                        <h3>{this.state.title}</h3>
+                        <table className="user-list" cellPadding="0" cellSpacing="0">
+                            <thead>
+                            <tr className="head-tr">
+                                <th>id</th>
+                                <th>姓名</th>
+                                <th>年龄</th>
+                                <th>性别</th>
+                                <th>工作</th>
+                                <th>操作</th>
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
-                <div className="clear-float"></div>
+                            </thead>
+                            <tbody>
+                            {this.state.users.map(user => (
+                                <tr key={user.id}>
+                                    <td>{user.id}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.age}</td>
+                                    <td>{user.sex}</td>
+                                    <td>{user.job}</td>
+                                    <td className="operator"><span onClick={() => this.handleDelete(user.id)}>删除</span>
+                                        <span onClick={() => this.handleDetail(user.id)}>详情</span>
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </Content>
                 <Footer message="首页底部"/>
             </div>
         );

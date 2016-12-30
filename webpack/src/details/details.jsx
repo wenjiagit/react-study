@@ -4,6 +4,7 @@ import './style.less';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Left from '../left/left';
+import Content from '../content/content';
 
 function GetRequest() {
     const url = location.search; //获取url中"?"符后的字串
@@ -45,14 +46,17 @@ class Details extends Component {
     render() {
         const user = this.state.user;
         return (
+
             <div className="details">
                 <Header/>
                 <Left/>
-                <div><span>用户id：</span><span>{user.id}</span></div>
-                <div><span>姓名：</span><span>{user.name}</span></div>
-                <div><span>性别：</span><span>{user.sex}</span></div>
-                <div><span>年龄：</span><span>{user.age}</span></div>
-                <div><span>工作：</span><span>{user.job}</span></div>
+                <Content>
+                    <div><span>用户id：</span><span>{user.id}</span></div>
+                    <div><span>姓名：</span><span>{user.name}</span></div>
+                    <div><span>性别：</span><span>{user.sex}</span></div>
+                    <div><span>年龄：</span><span>{user.age}</span></div>
+                    <div><span>工作：</span><span>{user.job}</span></div>
+                </Content>
                 <Footer message="详情页底部"/>
             </div>
         );

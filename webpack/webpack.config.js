@@ -18,8 +18,6 @@ var entry = {
     home: './src/home/home.jsx',
     about: './src/about/about.jsx',
     details: './src/details/details.jsx',
-    left: './src/left/left.jsx',
-
 };
 var htmlPlugins = [];
 

@@ -76,6 +76,22 @@
 
 	__webpack_require__(264);
 
+	var _footer = __webpack_require__(266);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	var _header = __webpack_require__(268);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _left = __webpack_require__(270);
+
+	var _left2 = _interopRequireDefault(_left);
+
+	var _content = __webpack_require__(274);
+
+	var _content2 = _interopRequireDefault(_content);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var About = function (_Component) {
@@ -106,18 +122,25 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'about' },
+	                _react2.default.createElement(_left2.default, null),
+	                _react2.default.createElement(_footer2.default, null),
+	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(
-	                    'h1',
-	                    { onClick: this.handleClick },
-	                    this.state.title
-	                ),
-	                _react2.default.createElement(
-	                    'div',
+	                    _content2.default,
 	                    null,
 	                    _react2.default.createElement(
-	                        'a',
-	                        { href: './home.html' },
-	                        '\u8FD4\u56DE\u9996\u9875'
+	                        'h1',
+	                        { onClick: this.handleClick },
+	                        this.state.title
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: './home.html' },
+	                            '\u8FD4\u56DE\u9996\u9875'
+	                        )
 	                    )
 	                )
 	            );
@@ -23073,6 +23096,390 @@
 
 /***/ },
 /* 264 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 265 */,
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(267);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Footer = function (_Component) {
+	    (0, _inherits3.default)(Footer, _Component);
+
+	    function Footer() {
+	        (0, _classCallCheck3.default)(this, Footer);
+	        return (0, _possibleConstructorReturn3.default)(this, (Footer.__proto__ || (0, _getPrototypeOf2.default)(Footer)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Footer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'footer' },
+	                this.props.message
+	            );
+	        }
+	    }]);
+	    return Footer;
+	}(_react.Component);
+
+	exports.default = Footer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 267 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(269);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = function (_Component) {
+	    (0, _inherits3.default)(Header, _Component);
+
+	    function Header() {
+	        (0, _classCallCheck3.default)(this, Header);
+	        return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'top-nav' },
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: './home.html' },
+	                            '\u9996\u9875'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u65B0\u95FB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u6295\u8D44'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u4EA7\u54C1'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u4F01\u4E1A'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u987E\u95EE'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: './about.html' },
+	                            '\u5173\u4E8E'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	    return Header;
+	}(_react.Component);
+
+	exports.default = Header;
+	module.exports = exports['default'];
+
+/***/ },
+/* 269 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(271);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Left = function (_Component) {
+	    (0, _inherits3.default)(Left, _Component);
+
+	    function Left() {
+	        (0, _classCallCheck3.default)(this, Left);
+	        return (0, _possibleConstructorReturn3.default)(this, (Left.__proto__ || (0, _getPrototypeOf2.default)(Left)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Left, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'left-nav' },
+	                _react2.default.createElement(
+	                    'ul',
+	                    { className: 'parent-ul' },
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E00'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E8C'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E09'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u56DB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E94'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u516D'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E03'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E00'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E8C'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E09'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u56DB'
+	                    ),
+	                    _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        '\u83DC\u5355\u4E94'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	    return Left;
+	}(_react.Component);
+
+	exports.default = Left;
+	module.exports = exports['default'];
+
+/***/ },
+/* 271 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 272 */,
+/* 273 */,
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(1);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(27);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(28);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(32);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(79);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(87);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(275);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Content = function (_Component) {
+	    (0, _inherits3.default)(Content, _Component);
+
+	    function Content() {
+	        (0, _classCallCheck3.default)(this, Content);
+	        return (0, _possibleConstructorReturn3.default)(this, (Content.__proto__ || (0, _getPrototypeOf2.default)(Content)).apply(this, arguments));
+	    }
+
+	    (0, _createClass3.default)(Content, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'content' },
+	                this.props.children
+	            );
+	        }
+	    }]);
+	    return Content;
+	}(_react.Component);
+
+	exports.default = Content;
+	module.exports = exports['default'];
+
+/***/ },
+/* 275 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
