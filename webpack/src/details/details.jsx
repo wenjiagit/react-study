@@ -20,9 +20,9 @@ function GetRequest() {
 }
 class Details extends Component {
     state = {
+        title:'人员详情',
         user: {}
-    }
-
+    };
     componentDidMount() {
         const {id} = GetRequest();
         // TODO 根据id 发ajax请求，获取user
@@ -46,22 +46,23 @@ class Details extends Component {
     render() {
         const user = this.state.user;
         return (
-
             <div className="details">
                 <Header/>
                 <Left/>
                 <Content>
-                    <div><span>用户id：</span><span>{user.id}</span></div>
-                    <div><span>姓名：</span><span>{user.name}</span></div>
-                    <div><span>性别：</span><span>{user.sex}</span></div>
-                    <div><span>年龄：</span><span>{user.age}</span></div>
-                    <div><span>工作：</span><span>{user.job}</span></div>
+                    <h3>{this.state.title}</h3>
+                    <div className="details-span">
+                        <div><span>用户id：</span><span>{user.id}</span></div>
+                        <div><span>姓名：</span><span>{user.name}</span></div>
+                        <div><span>性别：</span><span>{user.sex}</span></div>
+                        <div><span>年龄：</span><span>{user.age}</span></div>
+                        <div><span>工作：</span><span>{user.job}</span></div>
+                    </div>
                 </Content>
                 <Footer message="详情页底部"/>
             </div>
         );
     }
 }
-
 ReactDOM.render(<Details/>, document.getElementById('main'));
 

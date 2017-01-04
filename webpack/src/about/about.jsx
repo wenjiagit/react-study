@@ -23,7 +23,7 @@ class About extends Component {
                 <Footer/>
                 <Header/>
                 <Content>
-                    <h1 onClick={this.handleClick}>{this.state.title}</h1>
+                    <h3 onClick={this.handleClick}>{this.state.title}</h3>
                     <div><a href="./home.html">返回首页</a></div>
                 </Content>
             </div>
@@ -32,4 +32,3 @@ class About extends Component {
 }
 
 ReactDOM.render(<About />, document.getElementById('main'));
-
